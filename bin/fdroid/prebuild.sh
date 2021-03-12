@@ -5,9 +5,8 @@ source "bin/init/env.sh"
 ## Install rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
 source $HOME/.cargo/env
-pushd ss-rust/src/main/rust/shadowsocks-rust
+rustup install $(cat ss-rust/src/main/rust/shadowsocks-rust/rust-toolchain)
 rustup target install armv7-linux-androideabi aarch64-linux-android i686-linux-android x86_64-linux-android
-popd
 
 echo "rust.rustcCommand=$HOME/.cargo/bin/rustc" >>local.properties
 echo "rust.cargoCommand=$HOME/.cargo/bin/cargo" >>local.properties
